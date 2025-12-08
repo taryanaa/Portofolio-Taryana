@@ -1,954 +1,934 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taryana | Futuristic Portfolio</title>
+    
+    <!-- Google Fonts: Orbitron (Futuristic) & Space Mono (Tech) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Taryana - Personal Portfolio</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* ------------------- */
+        /* CUSTOMIZATION VARIABLES - Cyberpunk Theme */
+        /* ------------------- */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: rgba(13, 17, 23, 0.7);
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-cyan: #00ffff;
+            --accent-magenta: #ff00ff;
+            --accent-yellow: #ffff00;
+            --border-color: rgba(0, 255, 255, 0.3);
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Space Mono', monospace;
+        }
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        /* ------------------- */
+        /* RESET & GLOBAL STYLES */
+        /* ------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- Libraries Stylesheet -->
-        <link rel="stylesheet" href="lib/animate/animate.min.css"/>
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
 
-    <body>
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            text-shadow: 0 0 10px var(--accent-cyan);
+        }
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            border-radius: 2px;
+        }
 
+        section {
+            padding: 8rem 0;
+            position: relative;
+            z-index: 1;
+        }
 
-        <!-- Navbar Start -->
-        <div class="container-fluid nav-section border-0">
-            <nav class="navbar navbar-light">
-                <div class="navbar-nav flex-column">
-                    <a href="#pigraHome" class="nav-item nav-link active"><span class="fa fa-home"></span> Home</a>
-                    <a href="#pigraAbout" class="nav-item nav-link"><span class="far fa-address-card"></span> About</a>
-                    <a href="#pigraService" class="nav-item nav-link"><span class="fab fa-servicestack"></span> Service</a>
-                    <a href="#pigraBlog" class="nav-item nav-link"><span class="fa fa-blog"></span> Blog</a>
-                    <a href="#pigraContact" class="nav-item nav-link"><span class="fas fa-address-book"></span> Contact</a>
-                </div>
-            </nav>
-        </div>
-        <!-- Navbar End -->
+        a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
 
-        <!-- Header Start -->
-        <div class="container-fluid" id="pigraHome">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-12 col-lg-3">
-                        <div class="header-content bg-dark h-100 pt-6 pe-6 pb-6">
-                            <a href="index.html" class="navbar-brand d-inline-flex pb-5 wow fadeInUp" data-wow-delay="0.1s">
-                                <h1 class="display-6 text-white mb-0">Portfolio</h1>
-                            </a>
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.3s">
-                                <p class="text-white sub-title">👋 Hello I'm Taryana</p>
-                                <h1 class="display-6 text-white mb-0">Web Development from Kuningan City</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-9">
-                        <div class="header-img d-flex h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-5">
-                                <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="bg-light p-4" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;">
-                                        <img src="img/atar-img.JPG" class="img-fluid w-100" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;" alt="Image">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
-                                    <h1 class="display-6 mb-4">Content Creator & Web Developer</h1>
-                                    <p class="mb-4">Sebagai lulusan Pendidikan Teknologi Informasi dan Komunikasi, saya memiliki pengalaman dalam pemasaran, pengembangan perangkat lunak (khususnya back-end), dan administrasi. Keterampilan saya mencakup komunikasi, kerja sama tim, pemrograman, fotografi, dan manajemen administrasi. Saya adalah individu yang kreatif, inovatif, dan selalu bersemangat untuk belajar hal-hal baru.
-                                    </p>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-map-marker-alt text-primary me-3"></i>
-                                        <p class="text-dark mb-0">Kuningan Jawa Barat.Indonesia</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-envelope text-primary me-3"></i>
-                                        <p class="text-dark mb-0">yanatar432@gmail.com</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fa fa-phone-alt text-primary me-3"></i>
-                                        <p class="text-dark mb-0">(+62) 89670 722432 </p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-4">
-                                        <i class="fab fa-firefox-browser text-primary me-3"></i>
-                                        <p class="text-dark mb-0">Taryana.my.id</p>
-                                    </div>
-                                    <div class="d-flex">
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-twitter text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-instagram text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Header End -->
+        /* ------------------- */
+        /* CUSTOM CURSOR */
+        /* ------------------- */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: all 0.1s ease;
+            z-index: 9999;
+            mix-blend-mode: difference;
+        }
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 9998;
+        }
 
+        /* ------------------- */
+        /* NAVIGATION BAR */
+        /* ------------------- */
+        #main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
 
-        <!-- About Start -->
-        <div class="container-fluid" id="pigraAbout">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-12 col-lg-3">
-                        <div class="about-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">About Me</p>
-                                <h1 class="display-6 text-white mb-0">Web Developer based in Jawa Barat, Indonesia since 2022</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-9">
-                        <div class="about-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-5">
-                                <div class="col-xl-5">
-                                    <div class="about-img bg-light p-4 wow fadeInUp" data-wow-delay="0.1s">
-                                        <img src="img/about.jpg" class="img-fluid w-100" alt="Image">
-                                        <div class="sosial-icon">
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-twitter text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-instagram text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 wow fadeInUp" data-wow-delay="0.3s">
-                                    <h4 class="mb-4">Hello, I'm Taryana, Based in Kuningan City</h4>
-                                    <p class="mb-4">Saya adalah seorang profesional dengan latar belakang pendidikan TIK dan saya memiliki pengalaman dalam pemasaran, pengembangan perangkat lunak (khususnya back-end), dan administrasi. Keterampilan saya mencakup komunikasi, kerja sama tim, pemecahan masalah, pemrograman, fotografi, dan manajemen administrasi. Saya adalah individu yang kreatif, inovatif, dan selalu bersemangat untuk belajar hal-hal baru.
-                                    </p>
-                                    <div class="row g-4 mb-4">
-                                        <div class="col-6">
-                                            <p><strong class="fw-bold text-dark">Phone :</strong> (+62) 89670 722432</p>
-                                            <p><strong class="fw-bold text-dark">skype :</strong> tar.yanaa</p>
-                                            <p class="mb-0"><strong class="fw-bold text-dark">Address :</strong> Kuningan Jawa Barat</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p><strong class="fw-bold text-dark">Nationality :</strong> Indonesia</p>
-                                            <p><strong class="fw-bold text-dark">Email :</strong> yanatar432@gmail.com</p>
-                                            <p class="mb-0"><strong class="fw-bold text-dark">Freelancer :</strong> Editor</p>
-                                        </div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1QlXliZjnwjYkdfu2PVkgAEGre7O8gOSD/view?usp=sharing" class="btn btn-primary py-2 px-4"> <i class="fas fa-download me-2"></i>Download My CV</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
+        #main-nav.scrolled {
+            background: var(--bg-secondary);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-color);
+        }
 
+        #main-nav .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            text-shadow: 0 0 5px var(--accent-cyan);
+        }
 
-        <!-- Education Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="education-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Education</p>
-                                <h1 class="display-6 text-white mb-0">My education qualification</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="education-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Univesitas Muhammadiyah Kuningan</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2020 - 2024
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">S1 Pendidikan Teknologi Informasi dan Komunikasi</h4>
-                                        <p class="mb-0">LULUS dengan IPK 3.73 dari skala 4.00 dengan predikat Cumlaude 
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Magang dan Studi Independen Angkatan 5</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> Agustus - Desember 2022
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Technology Product Management</h4>
-                                        <p class="mb-0">Telah melakukan studi mendalam mengenai BMC, riset produk, dan pengembangan PRD. Menguasai go-to-market plan, product release documentation, serta metodologi SCRUM. Memiliki pengalaman praktikal dalam desain UI/UX dan pengembangan produk digital.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Jabar Coding Camp Batch II </p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> Februari - Juni 2022
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">NodeJS for Back-End Development with AdonisJS</h4>
-                                        <p class="mb-0">Bertujuan menjadi seorang Professional Back-End Developer yang kompeten dengan fokus pada penguasaan JavaScript dan TypeScript serta Membangun fondasi yang kuat untuk karier sebagai pengembang back-end melalui pembelajaran JavaScript, TypeScript, dan pelatihan profesional.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Education End -->
+        #main-nav .logo span {
+            color: var(--accent-magenta);
+        }
 
-        <!-- Experience Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="experience-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Experience</p>
-                                <h1 class="display-6 text-white mb-0">My real work experience</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="experience-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> Oktober 2020 - Mei 2022
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Sales & Marketing Exsecutive PT Tulus Asih Group</h4>
-                                        <p class="mb-0">Memiliki pengalaman dalam pengelolaan administrasi penjualan, mulai dari verifikasi invoice hingga dukungan pelanggan, serta memiliki kemampuan yang baik dalam analisis data penjualan.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> Agustus - Desember 2022
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Project Management</h4>
-                                        <p class="mb-0">Berhasil mengembangkan kemampuan dalam siklus hidup pengembangan produk, mulai dari perencanaan, desain, hingga peluncuran. Menguasai berbagai tools dan metodologi yang relevan, termasuk BMC, SCRUM, dan desain UI/UX.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> Agustus - November 2024
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Content Creator & Ads Analyst</h4>
-                                        <p class="mb-0">Memiliki keahlian dalam pembuatan konten visual, meliputi pengambilan video, editing foto dan video, serta pengembangan konsep kreatif untuk promosi produk dan Berhasil meningkatkan engagement dan kesadaran merek melalui pembuatan konten promosi yang menarik dan kreatif, mulai dari konsep hingga eksekusi.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> Mei - Juli 2024
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Asisten Barista & Waiters</h4>
-                                        <p class="mb-0">Berkontribusi dalam memberikan pelayanan yang cepat dan efisien kepada pelanggan, serta memastikan kepuasan pelanggan terhadap produk yang disajikan.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Exparience End -->
+        #main-nav ul {
+            display: flex;
+            list-style: none;
+        }
 
+        #main-nav ul li a {
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-        <!-- Skills Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="skills-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Skills</p>
-                                <h1 class="display-6 text-white mb-0">My expertise skills</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="skills-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-wordpress fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">98</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">Wordpress</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-figma fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">95</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">Figma</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-sketch fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">87</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">Back-End Dev</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.7s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-elementor fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">70</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">English Language</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-js-square fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">80</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">JavaScript</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-html5 fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">98</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">Desain Grafis</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Skills End -->
+        #main-nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
 
-
-        <!-- Service Start -->
-        <div class="container-fluid" id="pigraService">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="service-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">My Services</p>
-                                <h1 class="display-6 text-white mb-0">What I do for you</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="service-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fas fa-bezier-curve fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <a href="#" class="h4 mb-0">Content Creator</a>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Memiliki keahlian dalam pembuatan konten visual, meliputi pengambilan video, editing foto dan video, serta pengembangan konsep kreatif untuk promosi produk dan Berhasil meningkatkan engagement dan kesadaran merek melalui pembuatan konten promosi yang menarik dan kreatif, mulai dari konsep hingga eksekusi.
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> Editing</p>
-                                                <p><i class="fa fa-check me-2"></i> Riset Konten</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Komunikasi</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fas fa-laptop-code fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <a href="#" class="h4 mb-0">Web Development</a>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis laboriosam repudiandae
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> UI/UX Design</p>
-                                                <p><i class="fa fa-check me-2"></i> Research</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Mobile App</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fab fa-app-store fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <a href="#" class="h4 mb-0">Product Management</a>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Bertanggung jawab dalam pengembangan dan pemeliharaan website menggunakan HTML, CSS, dan JavaScript. serta mendesain dan mengimplementasikan antarmuka pengguna (UI) yang intuitif dan responsif. Membangun dan mengelola basis data untuk mendukung fungsionalitas website, menguji dan memperbaiki bug pada website untuk memastikan kinerja yang optimal.
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> UI/UX Design</p>
-                                                <p><i class="fa fa-check me-2"></i> Research Quality & QTY</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Management waktu</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Service End -->
-
-
-        <!-- Portfolio Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="portfolio-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Portfolio</p>
-                                <h1 class="display-6 text-white mb-0">My Recent Works</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="portfolio-content h-100 pt-6 ps-6 pb-6">
-                            <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Web Design</h4>
-                                        <h1 class="display-6 mb-0">Sibudes : Skripsi Akhir</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/Portfolio-1.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/Portfolio-1.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="Portfolio-1"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Conten Creator</h4>
-                                        <h1 class="display-6 mb-0">Konten on tiktok : @Fixcool.id</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/portfolio-2.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/portfolio-2.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="portfolio-2"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-item py-5 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Desain Grafis</h4>
-                                        <h1 class="display-6 mb-0">Desain grafis Banner untuk Organisasi Pramuka Kuningan</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/portfolio-3.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/portfolio-3.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="portfolio-3"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio End -->
-
-
-        <!-- Blog Start -->
-        <div class="container-fluid" id="pigraBlog">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="blog-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Blog</p>
-                                <h1 class="display-6 text-white mb-0">Recent Posts on Linked.in</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="blog-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-xl-6">
-                                    <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="row g-4">
-                                            <div class="col-4">
-                                                <div class="blog-item-img bg-dark h-100">
-                                                    <a href="#">
-                                                        <img src="img/blog-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="h-100">
-                                                    <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i> November 9, 2024</p>
-                                                    <a href="https://www.linkedin.com/posts/taryana26_saya-bekerja-di-salah-satu-toko-online-fixcoolid-activity-7260821144872628224-AuwD?utm_source=share&utm_medium=member_ios" class="d-inline-block h4 mb-4">Pengalaman Kerja sebagai Content Creator</a>
-                                                    <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                        <p class="mb-0 text-body">By <a href="#" class="h6">Taryana</a></p>
-                                                        <p class="mb-0 text-body">In <a href="#" class="h6">Content Creator</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="blog-item wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="row g-4">
-                                            <div class="col-4">
-                                                <div class="blog-item-img bg-dark h-100">
-                                                    <a href="#">
-                                                        <img src="img/blog-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="h-100">
-                                                    <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i> Oktober 11, 2023</p>
-                                                    <a href="https://www.linkedin.com/posts/taryana26_pembuatan-website-informasi-desa-cijemit-activity-7114255311875559424-Aw3v?utm_source=share&utm_medium=member_ios" class="d-inline-block h4 mb-4">Membuat website informatif untuk desa Cijemit</a>
-                                                    <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                        <p class="mb-0 text-body">By <a href="#" class="h6">Taryana</a></p>
-                                                        <p class="mb-0 text-body">In <a href="#" class="h6">Website</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="blog-item wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="row g-4">
-                                            <div class="col-4">
-                                                <div class="blog-item-img bg-dark h-100">
-                                                    <a href="#">
-                                                        <img src="img/blog-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="h-100">
-                                                    <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i> September 11, 2025</p>
-                                                    <a href="https://www.linkedin.com/posts/taryana26_today-i-am-working-with-cijemit-village-activity-7108291842445635584-K3O0?utm_source=share&utm_medium=member_ios" class="d-inline-block h4 mb-4">Membuat desain Logo Desa Cijemit</a>
-                                                    <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                        <p class="mb-0 text-body">By <a href="#" class="h6">Taryana</a></p>
-                                                        <p class="mb-0 text-body">In <a href="#" class="h6">Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="blog-item wow fadeInUp" data-wow-delay="0.7s">
-                                        <div class="row g-4">
-                                            <div class="col-4">
-                                                <div class="blog-item-img bg-dark h-100">
-                                                    <a href="#">
-                                                        <img src="img/blog-4.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="h-100">
-                                                    <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i> November 26, 2025</p>
-                                                    <a href="https://www.linkedin.com/posts/taryana26_saya-mengikuti-kegiatan-mbkm-magang-dan-studi-activity-7255930607921242112-j2an?utm_source=share&utm_medium=member_ios" class="d-inline-block h4 mb-4">Mambuat Logo Organisasi Satgiat Protokol Kuningan</a>
-                                                    <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                        <p class="mb-0 text-body">By <a href="#" class="h6">Taryana</a></p>
-                                                        <p class="mb-0 text-body">In <a href="#" class="h6">Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 wow fadeInUp" data-wow-delay="0.9s">
-                                    <div class="blog-btn d-flex justify-content-center">
-                                        <p class="mb-0 me-2">Untuk melihat portofolio saya silahkan cek pada linkedin</p>
-                                        <a href="linkedin.com/in/taryana26/" class="btn d-inline-block p-0">Linked.in Saya</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Blog End -->
-
-
-        <!-- Testimonial Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="testimonial-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Testimonial</p>
-                                <h1 class="display-6 text-white mb-0">What People Say</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="testimonial-content h-100 pt-6 ps-6 pb-6">
-                            <div class="testimonial-carousel owl-carousel bg-light wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-1.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-1.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">Alex martin</h5>
-                                                <p class="mb-0">Sekretaris Desa Cijemit</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Saya sangat terkesan dengan kecepatan dan kualitas layanan Taryana. Logo saya selesai lebih cepat dari yang saya perkirakan, dan hasilnya sangat memuaskan.
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-2.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-2.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">Sukardi</h5>
-                                                <p class="mb-0">Camat Ciawigebang</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Sangat puas dengan hasil website yang dibuat oleh Taryana. Desainnya modern dan responsif, serta mudah digunakan.
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-3.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-3.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">Zulfikar</h5>
-                                                <p class="mb-0">Pembisnis Fashion</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Konten yang dibuat oleh Taryana berhasil meningkatkan engagement di media sosial saya sebesar 70% serta traficnya selalu naik.
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
-
-
-        <!-- Contact Start -->
-        <div class="container-fluid" id="pigraContact">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="contact-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Contact Me</p>
-                                <h1 class="display-6 text-white mb-0">Let’s Start A New Project</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                       <div class="contact-content h-100 pt-6 ps-6 pb-6">
-                            <div class="bg-light p-4">
-                                <div class="row g-5">
-                                    <div class="col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
-                                        <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a class="text-primary fw-bold" href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                                        <div class="d-flex mb-4">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Address</h4>
-                                                <p class="mb-0">1Desa Ciawigebang, Kuningan, Jawa Barat</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mb-4">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fas fa-envelope"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Mail Us</h4>
-                                                <p class="mb-0">yanatar432@gmail.com</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fa fa-phone-alt"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Telephone</h4>
-                                                <p class="mb-0">(+62) 89670 722432</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-7 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div>
-                                            <form>
-                                                <div class="row g-3">
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
-                                                            <label for="name">Taryana</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
-                                                            <label for="email">yanatar432@gmail.com</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="phone" class="form-control border-0" id="phone" placeholder="Phone">
-                                                            <label for="phone">6289670722432</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="project" placeholder="Project">
-                                                            <label for="project">Portfolio</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
-                                                            <label for="subject">Content Creator</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-floating">
-                                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
-                                                            <label for="message">on instagram @tar.yanaa</label>
-                                                        </div>
-                
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <button class="btn btn-primary w-100 py-3">Send Message</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="rounded">
-                                            <iframe class="rounded w-100" 
-                                            style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Contact End -->
-
-
-        <!-- Footer Start -->
-        <div class="container-fluid footer bg-dark border-bottom-0">
-            <div class="container wow fadeIn" data-wow-delay="0.1s">
-                <div class="row g-0">
-                    <div class="col-12">
-                       <div class="footer-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-12 text-center">
-                                    <div class="d-flex justify-content-center">
-                                        <a class="btn btn-light btn-md-square me-3" href="https://www.facebook.com/xana.ii"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-twitter"></i></a>
-                                        <a class="btn btn-light btn-md-square me-3" href="https://www.instagram.com/tar.yanaa/profilecard/?igsh=MXR0bHRzNXU3NGRzYQ=="><i class="fab fa-instagram"></i></a>
-                                        <a class="btn btn-light btn-md-square me-0" href="linkedin.com/in/taryana26/"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-body me-2"></i>Taryana</a>, All right reserved.</span>
-                                </div>
-                                <div class="col-12 text-center text-body">
-                                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                                    Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">Web Portofolio</a> by <a class="border-bottom text-white" href="linkedin.com/in/taryana26/">Taryana</a>
-                                </div>
-                            </div>
-                       </div>        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
+        #main-nav ul li a:hover,
+        #main-nav ul li a.current {
+            color: var(--text-primary);
+        }
+        #main-nav ul li a:hover::before,
+        #main-nav ul li a.current::before {
+            width: 80%;
+        }
         
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        /* ------------------- */
+        /* HERO SECTION */
+        /* ------------------- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png') repeat;
+            opacity: 0.05;
+            animation: bg-move 20s linear infinite;
+        }
+        @keyframes bg-move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+        }
         
+        .hero h1:hover {
+            text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan), 0 0 30px var(--accent-cyan);
+            animation: glitch 0.3s infinite;
+        }
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+        @keyframes glitch {
+            0%, 100% { text-shadow: 0.05em 0 0 var(--accent-magenta), -0.05em -0.025em 0 var(--accent-cyan); }
+            50% { text-shadow: 0.05em 0 0 var(--accent-cyan), -0.05em -0.025em 0 var(--accent-magenta); }
+        }
 
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            font-family: var(--font-body);
+            min-height: 2em;
+            margin-bottom: 2rem;
+        }
+
+        .hero .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 5px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-cyan);
+            cursor: none;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-cyan);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn-primary {
+            color: var(--bg-primary);
+        }
+        .btn-primary:hover {
+            color: var(--bg-primary);
+            box-shadow: 0 0 15px var(--accent-cyan);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-cyan);
+        }
+        .btn-secondary:hover {
+            color: var(--bg-primary);
+        }
+
+        /* ------------------- */
+        /* ABOUT SECTION */
+        /* ------------------- */
+        #about .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        #about .hexagon-wrapper {
+            width: 280px;
+            height: 280px;
+            margin: auto;
+            position: relative;
+        }
+        #about .hexagon {
+            width: 100%;
+            height: 100%;
+            /* 
+              TODO: REPLACE THIS URL with your own photo link.
+              You can get a link by uploading your photo to a service like Imgur.com.
+            */
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80') no-repeat center center/cover;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 20px var(--accent-cyan);
+            transition: transform 0.3s ease;
+        }
+        #about .hexagon:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        #about h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        #about p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* ------------------- */
+        /* EXPERIENCE & PORTFOLIO CARDS */
+        /* ------------------- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+            border-color: var(--accent-cyan);
+        }
+
+        .card h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card .duration {
+            color: var(--accent-magenta);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .card ul li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+        }
+        
+        /* ------------------- */
+        /* PORTFOLIO SECTION */
+        /* ------------------- */
+        #portfolio .portfolio-item {
+            overflow: hidden;
+        }
+
+        #portfolio .portfolio-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        #portfolio .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        #portfolio .portfolio-item-info {
+            padding: 1.5rem;
+        }
+
+        #portfolio .portfolio-item-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        #portfolio .portfolio-item-info .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #portfolio .portfolio-item-info .tech-stack span {
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid var(--accent-cyan);
+        }
+
+        #portfolio .portfolio-item-info a {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-right: 1.5rem;
+            font-size: 1.3rem;
+            transition: transform 0.2s ease;
+        }
+        #portfolio .portfolio-item-info a:hover {
+            transform: scale(1.2);
+        }
+
+        /* ------------------- */
+        /* SKILLS SECTION */
+        /* ------------------- */
+        #skills .skills-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem; /* Space before the new language section */
+        }
+
+        #skills .skill-item {
+            margin-bottom: 2rem;
+        }
+
+        #skills .skill-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        #skills .skill-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        #skills .skill-level {
+            height: 100%;
+            width: 0; /* Initial width for animation */
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            border-radius: 5px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* --- Spoken Languages Section --- */
+        .languages-section {
+            margin-top: 4rem;
+        }
+
+        .languages-section h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            text-shadow: 0 0 8px var(--accent-magenta);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .language-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .language-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-magenta);
+            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.2);
+        }
+
+        .language-card i {
+            font-size: 3rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .language-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .language-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 700;
+        }
+        
+        /* ------------------- */
+        /* CONTACT SECTION (FOOTER) */
+        /* ------------------- */
+        #contact {
+            background: var(--bg-secondary);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        #contact h2::after {
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+        }
+
+        /* --- Social Media Logo Buttons --- */
+        #contact .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        #contact .contact-info a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            color: var(--accent-cyan);
+            font-size: 1.5rem;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        #contact .contact-info a:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+        }
+
+        #contact footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+            color: var(--text-secondary);
+        }
+
+        /* ------------------- */
+        /* RESPONSIVE DESIGN */
+        /* ------------------- */
+        @media(max-width: 768px) {
+            .cursor, .cursor-follower { display: none; } /* Hide custom cursor on mobile */
+            body { cursor: auto; }
+            #main-nav { flex-direction: column; padding: 0.5rem; }
+            #main-nav ul { padding: 0.5rem 0; }
+            .hero h1 { font-size: 3rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            h2 { font-size: 2rem; }
+            #about .about-content { grid-template-columns: 1fr; text-align: center; }
+            #about .hexagon-wrapper { margin-bottom: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor Elements -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <header id="main-nav">
+        <a href="#home" class="logo">TARYANA<span>.</span></a>
+        <ul>
+            <li><a href="#home" class="current">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 data-aos="fade-up">Taryana</h1>
+                <p class="subtitle" id="typewriter"></p>
+                <div class="btn-group" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="container">
+            <h2 data-aos="fade-up">About Me</h2>
+            <div class="about-content">
+                <div class="hexagon-wrapper" data-aos="fade-right">
+                    <div class="hexagon" style="background-image: url('poto.png');"></div>
+                </div>
+                <div data-aos="fade-left">
+                    <h3>Cyberpunk Coder & Product Strategist</h3>
+                    <p>
+                        I am a professional who bridges a strong foundation in technology with marketing experience, covering user research, idea validation, and communication strategy. A graduate in ICT Education from Muhammadiyah University of Kuningan (GPA 3.73, Cum Laude), I have a deep understanding of technology integration in a user context.
+                    </p>
+                    <p>
+                        I completed Technology Product Management training at Zenius, equipping me with knowledge of the product lifecycle, MVP design, experimentation, and product metrics. With a background in back-end development, I can collaborate effectively with engineering teams. I am adaptable, solution-oriented, and ready to contribute to product development from idea to launch.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="container">
+            <h2 data-aos="fade-up">Professional Journey</h2>
+            <div class="card-grid">
+                <div class="card" data-aos="flip-left" data-aos-delay="100">
+                    <h3>IT Teacher (Web & IoT)</h3>
+                    <p class="duration">IDN Boarding School (2024 - Present)</p>
+                    <ul>
+                        <li>Teaching mobile app development with Flutter and Thunkable, including UI/UX fundamentals.</li>
+                        <li>Guiding IoT and robotics projects from idea to testing to ensure functionality.</li>
+                        <li>Supporting feature planning, debugging, and evaluation of digital products.</li>
+                    </ul>
+                </div>
+                <div class="card" data-aos="flip-left" data-aos-delay="200">
+                    <h3>Video Editor & Content Creator</h3>
+                    <p class="duration">Fixcool.id (2024)</p>
+                    <ul>
+                        <li>Edited video and created visual content using Adobe Premiere Pro, After Effects, and Canva.</li>
+                        <li>Managed and optimized ad campaigns on Meta Ads and TikTok Ads.</li>
+                    </ul>
+                </div>
+                <div class="card" data-aos="flip-left" data-aos-delay="300">
+                    <h3>Marketing</h3>
+                    <p class="duration">PT Tulus Asih Group (2020 - 2021)</p>
+                    <ul>
+                        <li>Monitored and verified invoices, managed sales reports, and supported marketing activities.</li>
+                        <li>Assisted in customer administration processes and documentation.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="container">
+            <h2 data-aos="fade-up">My Portfolio</h2>
+            <div class="card-grid">
+                <div class="card portfolio-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 1 Screenshot">
+                    <div class="portfolio-item-info">
+                        <h3>Neon E-Commerce Platform</h3>
+                        <p>A full-featured e-commerce application with a futuristic UI, built with Flutter and a Node.js backend for seamless transactions.</p>
+                        <div class="tech-stack">
+                            <span>Flutter</span>
+                            <span>Node.js</span>
+                            <span>Firebase</span>
+                        </div>
+                        <a href="#" target="_blank" title="View Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="card portfolio-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 2 Screenshot">
+                    <div class="portfolio-item-info">
+                        <h3>Cyber-Secure IoT Dashboard</h3>
+                        <p>A web-based dashboard for monitoring and controlling a smart home network, featuring real-time data visualization and robust security protocols.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>MQTT</span>
+                            <span>WebSockets</span>
+                        </div>
+                        <a href="#" target="_blank" title="View Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="card portfolio-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 3 Screenshot">
+                    <div class="portfolio-item-info">
+                        <h3>Digital Marketing Offensive</h3>
+                        <p>A high-impact digital marketing campaign for a tech product, utilizing creative strategies on Meta and TikTok, resulting in a 50% boost in user engagement.</p>
+                        <div class="tech-stack">
+                            <span>Meta Ads</span>
+                            <span>TikTok Ads</span>
+                            <span>Premiere Pro</span>
+                            <span>After Effects</span>
+                        </div>
+                        <a href="#" target="_blank" title="View Case Study"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="container">
+            <h2 data-aos="fade-up">Skills & Tools</h2>
+            
+            <!-- Technical Skills -->
+            <div class="skills-content">
+                <div class="skill-item" data-aos="fade-right" data-aos-delay="100">
+                    <h4>Product Management</h4>
+                    <div class="skill-bar"><div class="skill-level" data-skill="90"></div></div>
+                </div>
+                <div class="skill-item" data-aos="fade-right" data-aos-delay="150">
+                    <h4>Mobile Development (Flutter)</h4>
+                    <div class="skill-bar"><div class="skill-level" data-skill="85"></div></div>
+                </div>
+                <div class="skill-item" data-aos="fade-right" data-aos-delay="200">
+                    <h4>Back-End Development (Node.js)</h4>
+                    <div class="skill-bar"><div class="skill-level" data-skill="80"></div></div>
+                </div>
+                <div class="skill-item" data-aos="fade-right" data-aos-delay="250">
+                    <h4>Digital Marketing</h4>
+                    <div class="skill-bar"><div class="skill-level" data-skill="75"></div></div>
+                </div>
+                <div class="skill-item" data-aos="fade-right" data-aos-delay="300">
+                    <h4>UI/UX Design (Figma)</h4>
+                    <div class="skill-bar"><div class="skill-level" data-skill="70"></div></div>
+                </div>
+                <div class="skill-item" data-aos="fade-right" data-aos-delay="350">
+                    <h4>Video Editing</h4>
+                    <div class="skill-bar"><div class="skill-level" data-skill="80"></div></div>
+                </div>
+            </div>
+
+            <!-- Spoken Languages Section -->
+            <div class="languages-section">
+                <h3 data-aos="fade-up">Spoken Languages</h3>
+                <div class="languages-grid">
+                    <div class="language-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-comments"></i>
+                        <h4>Indonesian</h4>
+                        <p>Native</p>
+                    </div>
+                    <div class="language-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-globe"></i>
+                        <h4>English</h4>
+                        <p>Advanced</p>
+                    </div>
+                    <div class="language-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-mosque"></i>
+                        <h4>Arabic</h4>
+                        <p>Beginner</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Contact Section -->
+    <footer id="contact">
+        <div class="container">
+            <h2 data-aos="fade-up">Initiate Connection</h2>
+            <p data-aos="fade-up" data-aos-delay="100">I'm always online to discuss new opportunities and interesting projects. Ping me!</p>
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+                <a href="mailto:taryanaaa002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/taryana26/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/taryanaa" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://devpost.com/taryanaa" target="_blank" title="Devpost"><i class="fab fa-dev"></i></a>
+            </div>
+            <footer>
+                <p>&copy; 2024 Taryana. All Rights Reserved. Coded in the Matrix <span style="color: var(--accent-cyan);">|</span></p>
+            </footer>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS (Animate On Scroll) library
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // --- Custom Cursor ---
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // --- Typewriter Effect for Hero Subtitle ---
+        const text = "Product Manager | Full-Stack Developer | Tech Visionary";
+        const typewriterElement = document.getElementById('typewriter');
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typewriterElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 80);
+            }
+        }
+        window.addEventListener('load', type);
+
+        // --- Navbar Background on Scroll ---
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // --- Active Nav Link on Scroll ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#main-nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('current');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('current');
+                }
+            });
+        });
+
+        // --- Smooth Scrolling for Nav Links ---
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').slice(1);
+                const targetSection = document.getElementById(targetId);
+                if(targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // --- Animated Skill Bars ---
+        const skillBars = document.querySelectorAll('.skill-level');
+        const animateSkills = () => {
+            skillBars.forEach(bar => {
+                const skillLevel = bar.getAttribute('data-skill');
+                const rect = bar.getBoundingClientRect();
+                // Check if element is in the viewport
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    bar.style.width = skillLevel + '%';
+                }
+            });
+        };
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateSkills);
+        // Run once on load in case skills are already in view
+        window.addEventListener('load', animateSkills);
+
+    </script>
+
+</body>
 </html>
